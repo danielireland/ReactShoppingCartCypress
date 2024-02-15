@@ -1,6 +1,3 @@
-//test data
-const productNames = ['Skater Black Sweatshirt', 'Black Tule Oversized', 'Blue Sweatshirt'];
-
 //selectors
 const productPriceText = '[class="Product__Val-sc-124al1g-6 eKyHNu"]';
 const addToCartBtn = 'button:contains("Add to cart")';
@@ -18,6 +15,9 @@ const productContainer = '[class="CartProduct__Container-sc-11uohgb-0 iFEDVZ"]';
 const removeProduct = '[title="remove product from cart"]';
 
 const valueRegex = /[$,\s]/g 
+
+//test data
+const productNames = ['Skater Black Sweatshirt', 'Black Tule Oversized', 'Blue Sweatshirt'];
 
 
 beforeEach(() => {

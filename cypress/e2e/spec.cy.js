@@ -14,6 +14,7 @@ const itemSizeQuantity = '[class="CartProduct__Desc-sc-11uohgb-3 bRgwLG"]';
 const productContainer = '[class="CartProduct__Container-sc-11uohgb-0 iFEDVZ"]';
 const removeProduct = '[title="remove product from cart"]';
 
+//This regex is used throughout this file to remove unnecessary characters from the product price text
 const valueRegex = /[$,\s]/g 
 
 //test data

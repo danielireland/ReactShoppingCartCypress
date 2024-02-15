@@ -5,4 +5,5 @@ https://github.com/jeffersonRibeiro/react-shopping-cart
 Once the react app is running locally on port 3000, run the cypress tests with the following commands:
 
 npm install
+
 npm run cypress:open

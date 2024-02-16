@@ -84,18 +84,22 @@ class CartPage {
           });
     }
 
-    addMultipleProductsToCartAndValidate(productNames) {
+    addMultipleProductsToCartAndValidate(productNames){
         let productValues = [];
         let cartProducts = [];
     
+        // Iterate through each product name in the array 'productNames'
         productNames.forEach((productName, index) => {
+          // Assign element as an alias with a dynamic index
           cy.get(`[alt="${productName}"]`).parent().as(`product${index + 1}`);
     
+          // Extract product price and update the productValues array
           cy.get(`@product${index + 1}`).find(this.productPriceText).then($productValue => {
             productValues[index] = $productValue.text().replace(this.priceRegex, '');
             cy.get(`@product${index + 1}`).find(this.addToCartBtn).click();
           });
         });
+
     
         // Assert products are in the cart
         cy.get(this.cartProductName).each(($cartProduct) => {
@@ -109,7 +113,8 @@ class CartPage {
         // Assert cart subtotal is correct
         cy.get(this.cartPriceText).then($cartValue => {
           const cartValue = $cartValue.text().replace(this.priceRegex, '');
-          let expectedCartValue = productValues.reduce((a, b) => +a + +b, 0).toFixed(2);
+          // Calculate the sum of all values in productValues array and format it to two decimal places
+          let expectedCartValue = productValues.reduce((accu, cur) => +accu + +cur, 0).toFixed(2);
           expect(cartValue).to.equal(expectedCartValue);
         });
     
@@ -117,7 +122,7 @@ class CartPage {
         cy.get(this.cartItemTotal).then($cartItems => {
           expect($cartItems.text()).to.equal(productNames.length.toString());
         });
-      }
+    }
 
   }
   

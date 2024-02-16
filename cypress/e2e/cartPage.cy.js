@@ -1,5 +1,4 @@
 import CartPage from '../pages/CartPage.js';
-import data from '../fixtures/testData.json'
 
 const cartPage = new CartPage();
 
@@ -28,6 +27,7 @@ describe('Validate opening and closing the checkout menu', () => {
 
 describe(`Validate adding products to the cart`, () => {
 
+  // Test each product in productNames[] 
   productNames.forEach(productName => {
     it('Add single product to cart and validate', () => {
       cartPage.addSingleProductToCartAndValidate(productName);
@@ -35,6 +35,7 @@ describe(`Validate adding products to the cart`, () => {
     });
   });
 
+  // Add all products in productNames[] to the cart
   it(`Add multiple products to the cart and validate`, () => {
     cartPage.addMultipleProductsToCartAndValidate(productNames);
   });
